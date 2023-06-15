@@ -1,11 +1,14 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <movie-header />
   <router-view />
 </template>
 
+<script>
+import MovieHeader from "./components/MovieHeader.vue";
+export default {
+  components: { MovieHeader },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
