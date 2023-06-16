@@ -10,6 +10,7 @@
         :id="movie.id"
       />
     </div>
+    <h4 v-if="!movies.length">No such a movie</h4>
   </div>
 </template>
 <script>

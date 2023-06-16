@@ -1,30 +1,43 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-sm-6">
-        <div class="image">
+      <div class="col-sm-4">
+        <div class="poster">
           <img :src="movie.image" />
         </div>
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-8">
         <h2>{{ movie.fullTitle }}</h2>
-        <p>{{ movie.year }}</p>
-        <p>{{ movie.imDbRating }}</p>
-        <p>{{ movie.genres }}</p>
-        <div class="actor" v-for="actor in actors.slice(0, 3)" :key="actor.id">
-          <p>{{ actor.name }}</p>
-          <p>{{ actor.asCharacter }}</p>
-          <img :src="actor.image" class="img-fluid" />
+        <h4>About movie</h4>
+        <p>Production year: {{ movie.year }}</p>
+        <p>Raiting: {{ movie.imDbRating }}</p>
+        <p>Genres: {{ movie.genres }}</p>
+        <h4>Actors:</h4>
+        <div class="row">
+          <div
+            class="actor col-lg-4"
+            v-for="actor in actors.slice(0, 3)"
+            :key="actor.id"
+          >
+            <div class="image mb-3"><img :src="actor.image" /></div>
+            <p>{{ actor.name }}</p>
+            <p>Character: {{ actor.asCharacter }}</p>
+          </div>
         </div>
       </div>
       <div class="col-sm-12">
-        <div
-          class="similars"
-          v-for="similar in similars.slice(0, 3)"
-          :key="similar.id"
-        >
-          <p>{{ similar.title }}</p>
-          <img :src="similar.image" class="img-fluid" />
+        <h3 class="mt-5 mb-5">Similar movies</h3>
+        <div class="row">
+          <div
+            class="similars col-lg-3"
+            v-for="similar in similars.slice(0, 4)"
+            :key="similar.id"
+          >
+            <div class="image mb-3">
+              <img :src="similar.image" class="img-fluid" />
+            </div>
+            <h5>{{ similar.title }}</h5>
+          </div>
         </div>
       </div>
     </div>
@@ -53,3 +66,28 @@ export default {
   },
 };
 </script>
+<style scoped>
+.poster {
+  height: 600px;
+}
+.poster img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+.actor .image {
+  height: 355px;
+}
+.actor .image img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+.similars .image {
+  height: 450px;
+}
+.similars .image img {
+  object-fit: cover;
+  height: 100%;
+}
+</style>
