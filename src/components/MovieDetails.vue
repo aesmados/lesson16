@@ -25,13 +25,21 @@ export default {
 };
 </script>
 <style scoped>
+.card {
+  cursor: pointer;
+}
+.card:hover .image img {
+  transform: scale(1.1);
+}
 .image {
   height: 360px;
+  overflow: hidden;
 }
 .image img {
   object-fit: fill;
   height: 100%;
   width: 100%;
+  transition: all 0.3s ease-out;
 }
 .card {
   position: relative;
